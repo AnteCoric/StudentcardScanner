@@ -6,7 +6,8 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     static public boolean test = true;
-
+    public String naam;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
