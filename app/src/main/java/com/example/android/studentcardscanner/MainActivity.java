@@ -2,12 +2,13 @@ package com.example.android.studentcardscanner;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     static public boolean test = true;
     public String naam;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,4 +16,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void launchDatabase(View view) {
+
+    }
+
+    public void launchNFC(View view) {
+
+    }
 }
