@@ -14,6 +14,21 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain" />
+                <!--
+                <intent-filter>
+                    <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+                </intent-filter>
+
+                <meta-data android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+                nfc_tech_filter = naam van het bestand met de tech filter
+                <intent-filter>
+                    <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+                </intent-filter>
+                -->
             </intent-filter>
         </activity>
         <activity android:name=".secondActivity"></activity>
