@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="launchDatabase"
-        android:text="SEND" />
+        android:text="editdatabase" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="launchNFC"
-        android:text="SEND" />
+        android:text="scan card" />
 
 </LinearLayout>

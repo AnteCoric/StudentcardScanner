@@ -11,11 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="nfcStart"
-        android:text="SEND" />
+        android:text="Scan" />
 
     <TextView
         android:id="@+id/info"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="data"/>
 
 </android.support.constraint.ConstraintLayout>
