@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.studentcardscanner">
 
+    <uses-permission
+        android:name="android.permission.NFC"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,8 +21,11 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
                 <!--
                 <intent-filter>
@@ -31,10 +41,9 @@
                 -->
             </intent-filter>
         </activity>
-        <activity android:name=".secondActivity"></activity>
+        <activity android:name=".secondActivity" />
+        <activity android:name=".database_activity" />
+        <activity android:name=".edit_database_activity"></activity>
     </application>
-
-    <uses-permission android:name="android.permission.NFC" android:required="true"/>
-    <uses-sdk android:minSdkVersion="10"/>
 
 </manifest>

@@ -16,9 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
     public void launchDatabase(View view) {
-
+        Intent intent = new Intent(this, database_activity.class);
+        //mogelijke informatie dat ook door gegeven moet worden hier zetten in code (to future self)
+        startActivity(intent);
     }
 
     public void launchNFC(View view) {
