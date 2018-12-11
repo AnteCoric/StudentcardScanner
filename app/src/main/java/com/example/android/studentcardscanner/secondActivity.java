@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class secondActivity extends AppCompatActivity {
 
+    Intent testintent;
     NfcAdapter mNfcAdapter;
     private String DataPayload;
     private TextView mInfo;
@@ -34,7 +35,7 @@ public class secondActivity extends AppCompatActivity {
 
     public void nfcStart(View view) {
         mInfo.setText("geting data");
-        //onNewIntent();//nog een intent toevoegen
+        onNewIntent(testintent);//nog een intent toevoegen
 
         mInfo.setText(DataPayload);
     }
@@ -54,6 +55,8 @@ public class secondActivity extends AppCompatActivity {
                 }
                 // Process the messages array.
             //...
+            } else {
+                DataPayload = "nfc fail";
             }
         }
     }
