@@ -11,6 +11,7 @@
         android:id="@+id/new_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="add_database"
         android:text="new database" />
 
     <Button

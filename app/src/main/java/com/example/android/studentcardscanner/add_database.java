@@ -9,25 +9,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class edit_database_activity extends AppCompatActivity {
+public class add_database extends AppCompatActivity {
 
-    private EditText studentnumber;
-    private boolean nfcread = false;
-    private String[] messagedata;
-    String text = "";
     NfcAdapter mNfcAdapter;
-    NfcAdapter mAdapter;
     PendingIntent mPendingIntent;
+    private TextView mserialnr;
+    NfcAdapter mAdapter;
+    String serialnr = "";
+    String firtsname = "";
+    String lastname = "";
+    String klas = "";
+    String studentennr = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_database_activity);
-
-        studentnumber = (EditText) findViewById(R.id.etxtstudenten_nummer);
+        setContentView(R.layout.activity_add_database);
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (mNfcAdapter == null) {
@@ -35,13 +35,11 @@ public class edit_database_activity extends AppCompatActivity {
             finish();
             return;
         }
-        mAdapter = NfcAdapter.getDefaultAdapter(this);
-        if (mAdapter == null) {
-            //nfc not support your device.
-            return;
-        }
+
         mPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,
                 getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+
+        mserialnr = (TextView) findViewById(R.id.txtstudenten_serialnr);
     }
     @Override
     protected void onResume() {
@@ -60,38 +58,38 @@ public class edit_database_activity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-        if(nfcread == true){
-            GetDataFromTag(tag, intent);
-        }
+        GetDataFromTag(tag, intent);
     }
-    public void edit(View view) {
-        if(studentnumber != null){
-            if (nfcread == false){
-                nfcread = true;
-            } else {
-                nfcread = false;
-            }
-        }
-    }
+
     private void GetDataFromTag(Tag tag, Intent intent) {
         NfcA ndef = NfcA.get(tag);
-        text = "";
+        serialnr = "";
         try {
+            //ndef.connect();
+//            txtType.setText(ndef.getType().toString());
+//            txtSize.setText(String.valueOf(ndef.getMaxSize()));EXTRA_NDEF_MESSAGES
+//            txtWrite.setText(ndef.isWritable() ? "True" : "False");TAG_DISCOVERED
+            //Parcelable[] messages = intent.getParcelableArrayExtra(NfcAdapter.EX);
             byte[] messages = ndef.getTag().getId();
             if (messages != null) {
-                for (int i = 0; i < messages.length; i++) {
-                    text += toHEXADECIMAL(messages[i]);
-                }
 
-                Log.e("tag", "vahid" + text);
+                //NdefMessage[] ndefMessages = new NdefMessage[messages.length];
+                for (int i = 0; i < messages.length; i++) {
+                    //ndefMessages[i] = (NdefMessage) messages[i];
+                    serialnr += toHEXADECIMAL(messages[i]);
+                }
+                //NdefRecord record = ndefMessages[0].getRecords()[0];
+
+                //byte[] payload = record.getPayload();
+                Log.e("tag", "vahid" + serialnr);
                 ndef.close();
-                //mInfo.setText(text);
-                Toast.makeText(getApplicationContext(),text,Toast.LENGTH_LONG).show();
+                mserialnr.setText(serialnr);
             }
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Cannot Read From Tag.", Toast.LENGTH_LONG).show();
         }
     }
+
     private String toHEXADECIMAL(int x){
         String HEX = "";
         int getal1;
@@ -146,5 +144,9 @@ public class edit_database_activity extends AppCompatActivity {
                 break;
         }
         return HEX;
+    }
+
+    public void add(View view) {
+
     }
 }

@@ -18,4 +18,10 @@ public class database_activity extends AppCompatActivity {
         //mogelijke informatie dat ook door gegeven moet worden hier zetten in code (to future self)
         startActivity(intent);
     }
+
+    public void add_database(View view) {
+        Intent intent = new Intent(this, add_database.class);
+        //mogelijke informatie dat ook door gegeven moet worden hier zetten in code (to future self)
+        startActivity(intent);
+    }
 }
